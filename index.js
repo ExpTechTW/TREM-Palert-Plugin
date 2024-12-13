@@ -21,24 +21,27 @@ class Plugin {
   }
 
   addClickEvent() {
+    const { info } = this.#ctx;
     const button = document.querySelector("#palert");
     button.addEventListener("click", () => {
-      console.log(__dirname, "palert.html");
-      ipcRenderer.send(
-        "open-new-window",
-        path.resolve(__dirname, "palert.html"), {
-          width          : 784,
-          height         : 561,
-          minWidth       : 784,
-          minHeight      : 561,
-          frame          : true,
-          resizable      : false,
-          webPreferences : {
-            nodeIntegration  : true,
-            contextIsolation : false,
+      // console.log(__dirname, "palert.html");
+      ipcRenderer.send("open-plugin-window", {
+          pluginId: "palert",
+          htmlPath: `${info.pluginDir}/palert/palert.html`,
+          options: {
+            width          : 784,
+            height         : 561,
+            minWidth       : 784,
+            minHeight      : 561,
+            frame          : true,
+            resizable      : false,
+            webPreferences : {
+              nodeIntegration  : true,
+              contextIsolation : false,
+            },
+            title: "P-Alert",
           },
-        },
-      );
+      });
     });
   }
 

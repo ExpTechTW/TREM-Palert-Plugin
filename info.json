@@ -1,11 +1,11 @@
 {
   "name": "palert",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": {
     "zh_tw": "TREM-Lite Palert Plugin"
   },
   "loader": ["index"],
-  "author": ["cstrikeasia"],
+  "author": ["cstrikeasia", "yayacat"],
   "dependencies": {
     "trem": ">=3.1.0-rc.3"
   },
